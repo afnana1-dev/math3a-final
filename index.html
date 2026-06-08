@@ -11,7 +11,7 @@
 
 <h1>MATH 3A — Final Exam Study Guide</h1>
 <p><strong>Exam:</strong> Monday June 8, 2026 · 10:30 AM – 12:20 PM (110 minutes)<br>
-<strong>Cumulative:</strong> Sections 1.1 – 6.2 &nbsp;|&nbsp; <strong>No calculator</strong> &nbsp;|&nbsp; Lay 6th ed. &nbsp;|&nbsp; Prof. Hezari</p>
+<strong>Cumulative:</strong> Sections 1.1 – 5.5 (incl. 5.4) &nbsp;|&nbsp; <strong>No calculator</strong> &nbsp;|&nbsp; Lay 6th ed. &nbsp;|&nbsp; Prof. Hezari</p>
 
 <!-- ===================== COURSE FILES ===================== -->
 <div class="files-section">
@@ -59,7 +59,7 @@
   <li><a href="#ch2">Matrix Algebra, Inverse, Subspaces, Rank (Ch. 2)</a></li>
   <li><a href="#ch3">Determinants &amp; Cramer's Rule (Ch. 3)</a></li>
   <li><a href="#ch5">Eigenvalues, Diagonalization, Complex (Ch. 5)</a></li>
-  <li><a href="#ch6">Orthogonality (Ch. 6.1–6.2)</a></li>
+  <li><a href="#ch54">Eigenvectors &amp; Linear Transformations (5.4)</a></li>
   <li><a href="#tf">Master True/False Cheat Sheet</a></li>
   <li><a href="#tactics">Exam Tactics</a></li>
 </ol>
@@ -361,34 +361,45 @@ B = PAP⁻¹ (similar) → same: det, trace, eigenvalues, rank, char. polynomial
 </div>
 
 <!-- ===================== CH 6 ===================== -->
-<h2 id="ch6">5 · Orthogonality (Ch. 6.1–6.2)</h2>
+<h2 id="ch54">5 · Eigenvectors &amp; Linear Transformations (5.4)</h2>
 
-<h3>6.1 · Inner Product, Length, Orthogonality</h3>
+<h3>The B-matrix of a Linear Transformation</h3>
 <div class="key">
-<strong>Inner product:</strong> u·v = u₁v₁ + … + uₙvₙ<br>
-<strong>Length:</strong> ‖v‖ = √(v·v) &nbsp;&nbsp; <strong>Unit vector:</strong> û = v/‖v‖<br>
-<strong>Orthogonal:</strong> u·v = 0 &nbsp;&nbsp; <strong>Distance:</strong> dist(u,v) = ‖u−v‖<br><br>
-<strong>Pythagoras:</strong> ‖u+v‖² = ‖u‖² + ‖v‖² iff u⊥v<br><br>
-<strong>Orthogonal complement W⊥:</strong><br>
-(Row(A))⊥ = Nul(A) &nbsp;&nbsp; (Col(A))⊥ = Nul(Aᵀ)
+Let B = {b₁, …, bₙ} be a basis for ℝⁿ and T: ℝⁿ → ℝⁿ a linear transformation with standard matrix A.<br><br>
+The <strong>B-matrix of T</strong> (matrix of T relative to basis B) is:<br>
+<span class="formula">[T]_B = P⁻¹AP</span><br>
+where P = [b₁ | b₂ | … | bₙ] (the change-of-basis matrix).<br><br>
+<strong>Key idea:</strong> [T]_B is similar to A. They represent the same transformation, just in different coordinate systems.
 </div>
 
-<h3>6.2 · Orthogonal Sets &amp; Projections</h3>
+<h3>Why this matters for diagonalization</h3>
 <div class="key">
-<strong>Orthogonal set</strong> {u₁,…,uₚ}: every pair orthogonal → automatically linearly independent<br>
-<strong>Orthonormal</strong>: orthogonal + each ‖uᵢ‖ = 1<br><br>
-<strong>Orthogonal Decomposition (projection onto W):</strong><br>
-<span class="formula">ŷ = proj_W y = Σ (y·uᵢ / uᵢ·uᵢ) · uᵢ</span><br><br>
-<strong>Best Approximation Theorem:</strong> ŷ is the closest point in W to y.
+If A is diagonalizable with eigenvectors p₁,…,pₙ and eigenvalues λ₁,…,λₙ:<br>
+Let B = {p₁,…,pₙ} (eigenvector basis), P = [p₁|…|pₙ].<br><br>
+Then: <span class="formula">[T]_B = P⁻¹AP = D</span> (diagonal!)<br><br>
+This is exactly diagonalization — the B-matrix is diagonal when B is the eigenvector basis.
+</div>
+
+<div class="worked">
+<strong>Example:</strong> A = [3,1;0,3], eigenvector basis B = {[1,0],[0,1]} (standard).<br>
+P = I, so [T]_B = I⁻¹AI = A. Nothing changes with the standard basis.<br><br>
+<strong>Now let B be the eigenvector basis of a diagonalizable A:</strong><br>
+If A = PDP⁻¹, then [T]_B = P⁻¹AP = D — you get the diagonal eigenvalue matrix.<br><br>
+<strong>The punchline:</strong> Every diagonalizable matrix A is just a scaling transformation when viewed in the right basis (its eigenvector basis).
+</div>
+
+<div class="tf">
+<strong>Key facts for T/F:</strong><br>
+• Similar matrices A and B represent the <em>same</em> linear transformation in different bases.<br>
+• If A = PDP⁻¹, the columns of P are the B-basis vectors (eigenvectors) and [T]_B = D.<br>
+• [T]_B is diagonal iff B is a basis of eigenvectors of A.
 </div>
 
 <div class="video-section">
   <span class="video-label">▶ Watch</span>
-  <a href="https://www.youtube.com/watch?v=LyGKycYT2v0" target="_blank" class="video-link">3Blue1Brown — Dot Products &amp; Duality</a>
+  <a href="https://www.youtube.com/watch?v=P2LTAUO1TdA" target="_blank" class="video-link">3Blue1Brown — Change of Basis</a>
   &nbsp;·&nbsp;
-  <a href="https://www.youtube.com/watch?v=27vT-NWuw0M" target="_blank" class="video-link">Khan Academy — Orthogonal Complements</a>
-  &nbsp;·&nbsp;
-  <a href="https://www.youtube.com/watch?v=MC7l96tW8V8" target="_blank" class="video-link">Khan Academy — Projections &amp; Least Squares</a>
+  <a href="https://www.youtube.com/watch?v=PFDu9oVAE-g" target="_blank" class="video-link">3Blue1Brown — Eigenvectors &amp; Eigenvalues</a>
 </div>
 
 <!-- ===================== TF ===================== -->
