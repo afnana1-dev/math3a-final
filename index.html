@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATH 3A Final Exam Study Guide – UCI Spring 2026</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>MATH 3A — Final Exam Study Guide</h1>
+<p><strong>Exam:</strong> Monday June 8, 2026 · 10:30 AM – 12:20 PM (110 minutes)<br>
+<strong>Cumulative:</strong> Sections 1.1 – 6.2 &nbsp;|&nbsp; <strong>No calculator</strong> &nbsp;|&nbsp; Lay 6th ed. &nbsp;|&nbsp; Prof. Hezari</p>
+
+<!-- ===================== COURSE FILES ===================== -->
+<div class="files-section">
+  <h2 class="files-heading">📁 Course Files</h2>
+  <div class="files-grid">
+    <a class="file-card" href="assets/syllabus.pdf" target="_blank">
+      <span class="file-icon">📋</span>
+      <span class="file-label">Syllabus</span>
+      <span class="file-sub">Spring 2026</span>
+    </a>
+    <a class="file-card" href="assets/practice-midterm.pdf" target="_blank">
+      <span class="file-icon">📝</span>
+      <span class="file-label">Practice Midterm</span>
+      <span class="file-sub">Questions</span>
+    </a>
+    <a class="file-card" href="assets/practice-midterm-solutions.pdf" target="_blank">
+      <span class="file-icon">✅</span>
+      <span class="file-label">Midterm Solutions</span>
+      <span class="file-sub">Full worked answers</span>
+    </a>
+    <a class="file-card" href="assets/practice-final.pdf" target="_blank">
+      <span class="file-icon">📝</span>
+      <span class="file-label">Practice Final</span>
+      <span class="file-sub">Questions</span>
+    </a>
+    <a class="file-card" href="assets/practice-final-solutions.pdf" target="_blank">
+      <span class="file-icon">✅</span>
+      <span class="file-label">Final Solutions</span>
+      <span class="file-sub">Full worked answers</span>
+    </a>
+    <a class="file-card" href="assets/suggested-hw.pdf" target="_blank">
+      <span class="file-icon">📚</span>
+      <span class="file-label">Suggested HW</span>
+      <span class="file-sub">All sections</span>
+    </a>
+  </div>
+</div>
+
+<div class="warn">⚡ <strong>Big picture:</strong> The final is cumulative. The midterm covered Ch. 1–2.9. The new post-midterm material (Ch. 3, 5, 6) will be heavily tested. Every True/False from the practice final is fair game.</div>
+
+<div class="toc box">
+<strong>Topics</strong>
+<ol class="toc">
+  <li><a href="#ch1">Row Reduction, Span, Linear Independence (Ch. 1)</a></li>
+  <li><a href="#ch2">Matrix Algebra, Inverse, Subspaces, Rank (Ch. 2)</a></li>
+  <li><a href="#ch3">Determinants &amp; Cramer's Rule (Ch. 3)</a></li>
+  <li><a href="#ch5">Eigenvalues, Diagonalization, Complex (Ch. 5)</a></li>
+  <li><a href="#ch6">Orthogonality (Ch. 6.1–6.2)</a></li>
+  <li><a href="#tf">Master True/False Cheat Sheet</a></li>
+  <li><a href="#tactics">Exam Tactics</a></li>
+</ol>
+</div>
+
+<!-- ===================== CH 1 ===================== -->
+<h2 id="ch1">1 · Row Reduction, Span, Linear Independence (Ch. 1)</h2>
+
+<h3>1.1–1.2 · Systems of Linear Equations</h3>
+<div class="key">
+<strong>Augmented matrix → RREF → Read off solution</strong><br>
+• <strong>Pivot column</strong> = basic variable · <strong>Non-pivot column</strong> = free variable<br>
+• Consistent iff no pivot in last column of augmented matrix<br>
+• Unique solution: no free variables · Infinitely many: ≥1 free variable
+</div>
+
+<div class="worked">
+<strong>Parametric vector form (exact exam style):</strong><br>
+After row-reducing, express basic variables in terms of free variables, then write:
+<pre>x = p + s·v₁ + t·v₂ + ...</pre>
+where <em>p</em> is a particular solution, v₁, v₂,… span the null space.
+</div>
+
+<div class="video-section">
+  <span class="video-label">▶ Watch</span>
+  <a href="https://www.youtube.com/watch?v=uQhTuRlWMxw" target="_blank" class="video-link">3Blue1Brown — Inverse Matrices, Column Space &amp; Null Space</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/watch?v=eDb6iugi6Uk" target="_blank" class="video-link">Khan Academy — Row Reduction &amp; Echelon Forms</a>
+</div>
+
+<h3>1.3–1.5 · Vector Equations &amp; Matrix Equations</h3>
+<div class="key">
+The four equivalent statements (all mean the same thing for an m×n matrix A):<br>
+① Ax = b is consistent for every b in ℝᵐ<br>
+② The columns of A span ℝᵐ<br>
+③ A has a pivot in every row<br>
+④ The column space Col(A) = ℝᵐ
+</div>
+
+<div class="video-section">
+  <span class="video-label">▶ Watch</span>
+  <a href="https://www.youtube.com/watch?v=k7RM-ot2NWY" target="_blank" class="video-link">3Blue1Brown — Linear Combinations, Span &amp; Basis Vectors</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/watch?v=fNk_zzaMoSs" target="_blank" class="video-link">3Blue1Brown — Essence of Linear Algebra (Intro)</a>
+</div>
+
+<h3>1.7 · Linear Independence</h3>
+<div class="key">
+Vectors {v₁,…,vₚ} are <strong>linearly dependent</strong> iff c₁v₁+…+cₚvₚ = 0 has a non-trivial solution.<br><br>
+<strong>Quick facts:</strong><br>
+• Any set containing the <strong>zero vector</strong> is linearly dependent.<br>
+• More vectors than entries (p &gt; m)? Always linearly <strong>dependent</strong>.<br>
+• Two vectors are linearly dependent iff one is a scalar multiple of the other.
+</div>
+
+<div class="warn">⚠ A set of 5 vectors in ℝ⁴ is <em>always</em> linearly dependent. A set of 4 vectors in ℝ⁴ is <em>not necessarily</em> a basis — they might still be dependent.</div>
+
+<div class="video-section">
+  <span class="video-label">▶ Watch</span>
+  <a href="https://www.youtube.com/watch?v=k7RM-ot2NWY" target="_blank" class="video-link">3Blue1Brown — Span &amp; Linear Independence</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/watch?v=CrV1xCWdY-g" target="_blank" class="video-link">Khan Academy — Linear Independence</a>
+</div>
+
+<h3>1.8–1.9 · Linear Transformations</h3>
+<div class="key">
+<strong>Standard matrix of T</strong>: A = [T(e₁) | T(e₂) | … | T(eₙ)]<br><br>
+<strong>One-to-one</strong> ↔ every column of A has a pivot ↔ Null(A) = {0}<br>
+<strong>Onto</strong> ↔ every row of A has a pivot ↔ Col(A) = ℝᵐ<br><br>
+<strong>Geometric transformations in ℝ²:</strong>
+</div>
+<table>
+<tr><th>Transformation</th><th>Matrix</th></tr>
+<tr><td>Rotation by θ (CCW)</td><td>[cos θ, −sin θ; sin θ, cos θ]</td></tr>
+<tr><td>Reflection about x₁-axis (x₂=0)</td><td>[1, 0; 0, −1]</td></tr>
+<tr><td>Reflection about x₂-axis (x₁=0)</td><td>[−1, 0; 0, 1]</td></tr>
+<tr><td>Reflection about x₁=x₂</td><td>[0, 1; 1, 0]</td></tr>
+<tr><td>Horizontal shear</td><td>[1, k; 0, 1]</td></tr>
+</table>
+
+<div class="worked">
+<strong>Composition:</strong> "First T then S" → matrix = A_S · A_T (right-to-left!)<br><br>
+<strong>Practice final style:</strong> Rotation by 5π/3 CCW then reflect about x₂=0:<br>
+Step 1: R = [cos(5π/3), −sin(5π/3); sin(5π/3), cos(5π/3)] = [½, √3/2; −√3/2, ½]<br>
+Step 2: Reflect about x₂=0 (x-axis): F = [1,0;0,−1]<br>
+Step 3: A = F·R = [½, √3/2; √3/2, −½]
+</div>
+
+<div class="warn">⚠ To show a map is NOT a linear transformation, check <strong>T(0) ≠ 0</strong> — the easiest method. A linear transformation must always send 0 → 0.</div>
+
+<div class="video-section">
+  <span class="video-label">▶ Watch</span>
+  <a href="https://www.youtube.com/watch?v=kYB8IZa5AuE" target="_blank" class="video-link">3Blue1Brown — Linear Transformations &amp; Matrices</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/watch?v=XkY2DOUCWMU" target="_blank" class="video-link">3Blue1Brown — Matrix Multiplication as Composition</a>
+</div>
+
+<!-- ===================== CH 2 ===================== -->
+<h2 id="ch2">2 · Matrix Algebra, Inverse, Subspaces, Rank (Ch. 2)</h2>
+
+<h3>2.1–2.3 · Matrix Operations &amp; Inverse</h3>
+<div class="key">
+<strong>Finding A⁻¹ by row reduction:</strong> Set up [A | I] and reduce to [I | A⁻¹].<br><br>
+<strong>Invertible Matrix Theorem (IMT)</strong> — all equivalent for n×n matrix A:<br>
+• A is invertible &nbsp;·&nbsp; det(A) ≠ 0 &nbsp;·&nbsp; Null(A) = {0}<br>
+• Columns are linearly independent &nbsp;·&nbsp; Columns span ℝⁿ<br>
+• A has n pivot positions &nbsp;·&nbsp; rank(A) = n<br>
+• 0 is <em>not</em> an eigenvalue of A
+</div>
+
+<div class="worked">
+<strong>Using a known inverse to find related inverses (Practice Final Q4):</strong><br>
+If A⁻¹ is known, note B = 3A → B⁻¹ = (1/3)A⁻¹<br>
+If C = −A⁻¹ → C⁻¹ = −A &nbsp;&nbsp;(use (AB)⁻¹ = B⁻¹A⁻¹ repeatedly)
+</div>
+
+<div class="video-section">
+  <span class="video-label">▶ Watch</span>
+  <a href="https://www.youtube.com/watch?v=uQhTuRlWMxw" target="_blank" class="video-link">3Blue1Brown — Inverse Matrices, Column Space &amp; Null Space</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/watch?v=iUQR0enP7RQ" target="_blank" class="video-link">Khan Academy — Inverting a 3×3 Matrix</a>
+</div>
+
+<h3>2.8–2.9 · Subspaces, Col(A), Null(A), Rank</h3>
+<div class="key">
+<strong>Col(A)</strong>: span of columns of A. Lives in ℝᵐ for an m×n matrix.<br>
+<strong>Nul(A)</strong>: solutions to Ax=0. Lives in ℝⁿ.<br>
+<strong>Row(A)</strong>: span of rows of A. Lives in ℝⁿ.<br><br>
+<strong>Rank-Nullity Theorem:</strong> rank(A) + nullity(A) = n (# columns)<br><br>
+<strong>rank(A) = rank(Aᵀ)</strong> always.<br><br>
+<strong>To verify v ∈ Col(A)</strong>: row reduce [A | v] — consistent means v ∈ Col(A).<br>
+<strong>Coordinates in Col(A)</strong>: if Col(A) basis = {u₁, u₂}, solve c₁u₁+c₂u₂ = v.
+</div>
+
+<div class="warn">⚠ Col(A) of a 5×3 matrix is a subspace of <strong>ℝ⁵</strong>, not ℝ³. The columns have 5 entries.</div>
+
+<h3>How to find a basis for Col(A) and Nul(A)</h3>
+<div class="box">
+<strong>Basis for Col(A):</strong> Row-reduce A. The <em>pivot columns of the original matrix A</em> form a basis for Col(A).<br><br>
+<strong>Basis for Nul(A):</strong> Solve Ax = 0 (parametric vector form). The vectors multiplied by free variables are the basis vectors.
+</div>
+
+<h3>Checking if S is a Subspace</h3>
+<div class="key">
+A subset S of ℝⁿ is a subspace iff:<br>
+① 0 ∈ S<br>
+② Closed under addition: u,v ∈ S → u+v ∈ S<br>
+③ Closed under scalar multiplication: u ∈ S, c∈ℝ → cu ∈ S<br><br>
+<strong>Fastest failure check:</strong> Does it contain 0? If not, done — not a subspace.
+</div>
+
+<div class="worked">
+<strong>Practice Final Q6 — S = {[x,y] : y = x²} ⊆ ℝ²:</strong><br>
+[1,1] ∈ S, [2,4] ∈ S. Sum = [3,5]: is 5=3²? No → <strong>NOT a subspace</strong>.<br><br>
+<strong>S = {[a,b,c] : a+b=2c}:</strong><br>
+Contains 0? Yes. Write a=2c−b → [a,b,c] = b[−1,1,0] + c[2,0,1].<br>
+<strong>Subspace</strong>, basis = {[−1,1,0], [2,0,1]}.
+</div>
+
+<div class="video-section">
+  <span class="video-label">▶ Watch</span>
+  <a href="https://www.youtube.com/watch?v=uQhTuRlWMxw" target="_blank" class="video-link">3Blue1Brown — Column Space &amp; Null Space</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/watch?v=8o5Cmfpeo6g" target="_blank" class="video-link">Khan Academy — Subspaces &amp; Basis</a>
+</div>
+
+<!-- ===================== CH 3 ===================== -->
+<h2 id="ch3">3 · Determinants &amp; Cramer's Rule (Ch. 3)</h2>
+
+<h3>3.1–3.2 · Computing Determinants</h3>
+<div class="key">
+<strong>Cofactor expansion along row 1:</strong><br>
+det(A) = a₁₁C₁₁ + a₁₂C₁₂ + a₁₃C₁₃<br>
+where C₁ⱼ = (−1)^(1+j) · det(minor)<br><br>
+<strong>Row operation effects on det:</strong><br>
+• Swap two rows → multiply det by −1<br>
+• Multiply a row by k → multiply det by k<br>
+• Add multiple of one row to another → det <strong>unchanged</strong><br><br>
+<strong>Triangle matrix:</strong> det = product of diagonal entries<br><br>
+<strong>det(kA) = kⁿ det(A)</strong> for n×n matrix &nbsp;&nbsp;<strong>det(AB) = det(A)·det(B)</strong><br>
+<strong>det(A⁻¹) = 1/det(A)</strong> &nbsp;&nbsp;<strong>det(Aᵀ) = det(A)</strong>
+</div>
+
+<div class="worked">
+<strong>Practice Final Q2 — Parametric determinant:</strong><br>
+<pre>A = [k, 0, 0; 0, 3, k; 0, k, 12]</pre>
+Expand along row 1: det(A) = k · det([3,k;k,12]) = k(36−k²) = k(6−k)(6+k)<br>
+A is invertible ↔ k ≠ 0, 6, −6
+</div>
+
+<div class="warn">⚠ det(2A) = 2ⁿ det(A). For a 3×3 matrix, det(2A) = 8 det(A), NOT 2 det(A). Classic trap.</div>
+
+<h3>3.3 · Cramer's Rule</h3>
+<div class="key">
+For Ax = b where A is n×n invertible:<br>
+<span class="formula">xᵢ = det(Aᵢ(b)) / det(A)</span><br>
+where Aᵢ(b) = A with the i-th column replaced by b.
+</div>
+
+<div class="worked">
+<strong>Practice Final Q5:</strong> Show x₂ = 0.<br>
+Replace col 2 of A with b → that determinant = 0 → x₂ = 0/det(A) = 0.<br>
+Without Cramer's Rule: row-reduce [A|b].
+</div>
+
+<div class="video-section">
+  <span class="video-label">▶ Watch</span>
+  <a href="https://www.youtube.com/watch?v=Ip3X9LOh2dk" target="_blank" class="video-link">3Blue1Brown — The Determinant</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/watch?v=jBsC34PxzoM" target="_blank" class="video-link">3Blue1Brown — Cramer's Rule, Explained Geometrically</a>
+</div>
+
+<!-- ===================== CH 5 ===================== -->
+<h2 id="ch5">4 · Eigenvalues, Eigenvectors, Diagonalization (Ch. 5)</h2>
+
+<h3>5.1 · Eigenvalues &amp; Eigenvectors</h3>
+<div class="key">
+λ is an eigenvalue of A if Av = λv for some <strong>nonzero</strong> v.<br><br>
+<strong>Step 1:</strong> Solve <span class="formula">det(A − λI) = 0</span> to find eigenvalues.<br>
+<strong>Step 2:</strong> For each λ, find Eλ = Nul(A − λI) by solving (A − λI)x = 0.<br><br>
+<strong>Algebraic multiplicity</strong> = power of (λ−λ₀) in characteristic polynomial<br>
+<strong>Geometric multiplicity</strong> = dim(Eλ) &nbsp;&nbsp;Always: geom. mult ≤ alg. mult
+</div>
+
+<div class="key">
+<strong>Properties:</strong><br>
+• det(A) = product of eigenvalues &nbsp;·&nbsp; tr(A) = sum of eigenvalues<br>
+• A and Aᵀ have the <strong>same eigenvalues</strong> (not necessarily same eigenvectors)<br>
+• Similar matrices have the same eigenvalues<br>
+• λ eigenvalue of A → λⁿ eigenvalue of Aⁿ
+</div>
+
+<div class="warn">⚠ The zero vector is <strong>never</strong> an eigenvector. The definition requires v ≠ 0.</div>
+
+<h3>5.2 · The Characteristic Equation</h3>
+<div class="worked">
+<strong>2×2 shortcut:</strong> p(λ) = λ² − tr(A)·λ + det(A)<br><br>
+<strong>Triangular matrices:</strong> eigenvalues = diagonal entries (read directly).
+</div>
+
+<h3>5.3 · Diagonalization</h3>
+<div class="key">
+A = PDP⁻¹ where D is diagonal.<br><br>
+<strong>A is diagonalizable iff</strong> for every eigenvalue, geometric mult = algebraic mult.<br>
+<em>Sufficient (not necessary):</em> n distinct eigenvalues → diagonalizable<br><br>
+<strong>Build P &amp; D:</strong><br>
+P = eigenvectors as columns &nbsp;·&nbsp; D = corresponding eigenvalues on diagonal (same order)
+</div>
+
+<div class="worked">
+<strong>Computing Aⁿ:</strong> If A = PDP⁻¹ then Aⁿ = PDⁿP⁻¹ &nbsp;&nbsp;(raise each diagonal entry to n)<br><br>
+<strong>Practice Final Q7e — Compute A¹⁰, eigenvalues 4 (mult 2) and 2 (mult 1):</strong><br>
+D¹⁰ = diag(4¹⁰, 4¹⁰, 2¹⁰) &nbsp;→&nbsp; A¹⁰ = P · D¹⁰ · P⁻¹
+</div>
+
+<div class="warn">⚠ Repeated eigenvalues don't automatically mean non-diagonalizable — check if geom. mult = alg. mult for each one.</div>
+
+<h3>5.5 · Complex Eigenvalues</h3>
+<div class="key">
+Real matrix with complex eigenvalue λ = a+bi:<br>
+• Conjugate λ̄ = a−bi is also an eigenvalue (automatic)<br>
+• Eigenvectors come in conjugate pairs<br><br>
+<strong>2×2:</strong> p(λ) = λ² − tr(A)·λ + det(A) → solve with quadratic formula
+</div>
+
+<div class="worked">
+<strong>Practice Final Q8:</strong> A = [3,4;−4,3]<br>
+p(λ) = λ² − 6λ + 25 &nbsp;→&nbsp; λ = 3 ± 4i<br>
+For λ = 3+4i: row-reduce [A−(3+4i)I] → eigenvector [1; i]<br>
+Conjugate: [1; −i] (automatic)<br>
+P = [1,1; i,−i], D = diag(3+4i, 3−4i)
+</div>
+
+<h3>Non-diagonalizable matrices</h3>
+<div class="worked">
+<strong>Practice Final Q9:</strong> A = [2,1,0;0,2,1;0,0,2]<br>
+p(λ) = (2−λ)³ → λ=2, alg. mult. 3<br>
+Row-reduce (A−2I): only one free variable → dim(E₂) = 1 &lt; 3 → <strong>NOT diagonalizable</strong>
+</div>
+
+<h3>Similarity</h3>
+<div class="key">
+B = PAP⁻¹ (similar) → same: det, trace, eigenvalues, rank, char. polynomial<br><br>
+<strong>To prove similar:</strong> Show both are diagonalizable with same eigenvalues → both similar to same D.<br>
+<strong>To disprove similar:</strong> Find tr(A) ≠ tr(B) or det(A) ≠ det(B) — instant kill.
+</div>
+
+<div class="tf">
+<strong>Trap:</strong> Same eigenvalues ≠ similar. Counterexample: [1,1;0,1] vs I both have λ=1 (mult 2) but [1,1;0,1] is not diagonalizable while I is.
+</div>
+
+<div class="video-section">
+  <span class="video-label">▶ Watch</span>
+  <a href="https://www.youtube.com/watch?v=PFDu9oVAE-g" target="_blank" class="video-link">3Blue1Brown — Eigenvectors &amp; Eigenvalues</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/watch?v=P2LTAUO1TdA" target="_blank" class="video-link">3Blue1Brown — Change of Basis &amp; Diagonalization</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/watch?v=cdZnhQjJu4I" target="_blank" class="video-link">Khan Academy — Complex Eigenvalues</a>
+</div>
+
+<!-- ===================== CH 6 ===================== -->
+<h2 id="ch6">5 · Orthogonality (Ch. 6.1–6.2)</h2>
+
+<h3>6.1 · Inner Product, Length, Orthogonality</h3>
+<div class="key">
+<strong>Inner product:</strong> u·v = u₁v₁ + … + uₙvₙ<br>
+<strong>Length:</strong> ‖v‖ = √(v·v) &nbsp;&nbsp; <strong>Unit vector:</strong> û = v/‖v‖<br>
+<strong>Orthogonal:</strong> u·v = 0 &nbsp;&nbsp; <strong>Distance:</strong> dist(u,v) = ‖u−v‖<br><br>
+<strong>Pythagoras:</strong> ‖u+v‖² = ‖u‖² + ‖v‖² iff u⊥v<br><br>
+<strong>Orthogonal complement W⊥:</strong><br>
+(Row(A))⊥ = Nul(A) &nbsp;&nbsp; (Col(A))⊥ = Nul(Aᵀ)
+</div>
+
+<h3>6.2 · Orthogonal Sets &amp; Projections</h3>
+<div class="key">
+<strong>Orthogonal set</strong> {u₁,…,uₚ}: every pair orthogonal → automatically linearly independent<br>
+<strong>Orthonormal</strong>: orthogonal + each ‖uᵢ‖ = 1<br><br>
+<strong>Orthogonal Decomposition (projection onto W):</strong><br>
+<span class="formula">ŷ = proj_W y = Σ (y·uᵢ / uᵢ·uᵢ) · uᵢ</span><br><br>
+<strong>Best Approximation Theorem:</strong> ŷ is the closest point in W to y.
+</div>
+
+<div class="video-section">
+  <span class="video-label">▶ Watch</span>
+  <a href="https://www.youtube.com/watch?v=LyGKycYT2v0" target="_blank" class="video-link">3Blue1Brown — Dot Products &amp; Duality</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/watch?v=27vT-NWuw0M" target="_blank" class="video-link">Khan Academy — Orthogonal Complements</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/watch?v=MC7l96tW8V8" target="_blank" class="video-link">Khan Academy — Projections &amp; Least Squares</a>
+</div>
+
+<!-- ===================== TF ===================== -->
+<h2 id="tf">6 · Master True/False Cheat Sheet</h2>
+<p>Drawn directly from both practice exams. Know each one cold.</p>
+
+<table>
+<tr><th>Statement</th><th>T/F</th><th>Key Reason</th></tr>
+<tr><td>4×3 matrix: Ax=b inconsistent for some b∈ℝ⁴</td><td>T</td><td>Only 3 cols → can't span ℝ⁴</td></tr>
+<tr><td>3×4 matrix: Ax=0 has infinitely many solutions</td><td>T</td><td>4 vars, ≤3 pivots → free variable</td></tr>
+<tr><td>10×5 matrix: Ax=0 is consistent</td><td>T</td><td>x=0 always works</td></tr>
+<tr><td>m vectors span ℝ⁴ and LI → m=4</td><td>T</td><td>Basis for ℝ⁴ has exactly 4 vectors</td></tr>
+<tr><td>T one-to-one ↔ every column of A has a pivot</td><td>T</td><td>Nul(A)={0}</td></tr>
+<tr><td>{[1,2,0],[0,0,0],[5,1,3]} is linearly independent</td><td>F</td><td>Contains zero vector → dependent</td></tr>
+<tr><td>5 vectors in ℝ⁴ are always linearly dependent</td><td>T</td><td>More vectors than dimension</td></tr>
+<tr><td>{[1,4],[2,8]} is linearly independent</td><td>F</td><td>[2,8] = 2·[1,4] → dependent</td></tr>
+<tr><td>[1,5,0;0,2,0;0,0,0] is invertible</td><td>F</td><td>Zero row → missing pivot</td></tr>
+<tr><td>3×3 with 3 pivots is invertible</td><td>T</td><td>IMT — pivot in every row &amp; column</td></tr>
+<tr><td>Ax=b inconsistent if [A|b] has pivot in last column</td><td>T</td><td>Row [0…0|1] → 0=1, impossible</td></tr>
+<tr><td>Every Ax=0 has at least one solution</td><td>T</td><td>x=0 is always a solution</td></tr>
+<tr><td>4×3 matrix: columns can span ℝ⁴</td><td>F</td><td>Only 3 cols → at most 3 pivots</td></tr>
+<tr><td>Col(A) of 5×3 matrix is subspace of ℝ³</td><td>F</td><td>Columns live in ℝ⁵, not ℝ³</td></tr>
+<tr><td>4×4 matrix rank 3 → det(A)=0</td><td>T</td><td>Not full rank → singular</td></tr>
+<tr><td>Cols of 5×5 LI → rows are LI</td><td>T</td><td>Square: col LI ↔ row LI ↔ invertible</td></tr>
+<tr><td>det(2A) = 2 det(A)</td><td>F</td><td>det(kA)=kⁿdet(A); 3×3: det(2A)=8det(A)</td></tr>
+<tr><td>5×5 det=0 → Ax=0 has infinitely many solutions</td><td>T</td><td>Singular → Nul(A)≠{0}</td></tr>
+<tr><td>A+I invertible → −1 not an eigenvalue of A</td><td>T</td><td>If Av=−v then (A+I)v=0 → A+I singular</td></tr>
+<tr><td>det(A−A²)=0 → 0 or 1 is eigenvalue of A</td><td>T</td><td>A(I−A) singular → det(A)=0 or det(I−A)=0</td></tr>
+<tr><td>A invertible ↔ 0 is not an eigenvalue</td><td>T</td><td>IMT: invertible ↔ Nul(A)={0}</td></tr>
+<tr><td>Similar matrices have the same determinant</td><td>T</td><td>det(PAP⁻¹)=det(A)</td></tr>
+<tr><td>Similar matrices have the same rank</td><td>T</td><td>Multiplying by invertibles preserves rank</td></tr>
+<tr><td>A=[2,1;1,2], B=[4,2;−1,0] are similar</td><td>T</td><td>Both have eigenvalues 1,3; both diagonalizable → both similar to diag(1,3)</td></tr>
+<tr><td>A=[−3,1;3,2], B=[1,2;−1,0] are similar</td><td>F</td><td>tr(A)=−1 ≠ tr(B)=1 → different eigenvalues</td></tr>
+<tr><td>Av=λv defines an eigenvector</td><td>F</td><td>Missing: v ≠ 0</td></tr>
+<tr><td>A and Aᵀ have same eigenvalues AND eigenvectors</td><td>F</td><td>Same eigenvalues, eigenvectors generally differ</td></tr>
+<tr><td>Same eigenvalues → similar matrices</td><td>F</td><td>[1,1;0,1] vs [1,0;0,1]: same λ=1, not similar</td></tr>
+<tr><td>4×4 diagonalizable → must have 4 distinct eigenvalues</td><td>F</td><td>Identity: λ=1 (mult 4), still diagonalizable</td></tr>
+<tr><td>3×3 not diagonalizable → eigenvalue must have mult 3</td><td>F</td><td>Could fail with mult-2 eigenvalue where geom &lt; alg</td></tr>
+<tr><td>n×m, Nul(A)={0} → n=m and A invertible</td><td>F</td><td>Counterexample: [1;0] is 2×1, Nul={0} but not square</td></tr>
+<tr><td>rank(A) = rank(Aᵀ)</td><td>T</td><td>Row rank = column rank always</td></tr>
+</table>
+
+<!-- ===================== TACTICS ===================== -->
+<h2 id="tactics">7 · Exam Tactics</h2>
+
+<div class="box">
+<strong>True/False (~15–20 questions):</strong> Always give a reason. For FALSE, give a <em>specific counterexample</em> — not "not necessarily."<br><br>
+<strong>Row reduction:</strong> Write each row operation (R₂ → R₂ − 2R₁). Don't skip steps.<br><br>
+<strong>Determinant:</strong> Expand along the row/column with the most zeros.<br><br>
+<strong>Eigenvalue workflow:</strong><br>
+① det(A−λI)=0 → eigenvalues &nbsp; ② Row-reduce (A−λI) → eigenvectors<br>
+③ Check geom=alg mult → diagonalizable? &nbsp; ④ Build P and D<br><br>
+<strong>Subspaces:</strong> Check 0∈S first. Then write parametrically → read off basis.<br><br>
+<strong>Time (110 min):</strong> True/False ~30 min · Computation ~70 min · Review ~10 min
+</div>
+
+<div class="key">
+<strong>Top mistakes:</strong><br>
+① det(2A) ≠ 2det(A) — it's 2ⁿdet(A)<br>
+② Col(A) lives in ℝᵐ, not ℝⁿ<br>
+③ Same eigenvalues ≠ similar<br>
+④ Every column has pivot → one-to-one (NOT onto). Every <em>row</em> → onto<br>
+⑤ Eigenvector requires v ≠ 0<br>
+⑥ Composition order: "first T then S" = A_S · A_T (right to left)<br>
+⑦ Aⁿ = PDⁿP⁻¹, don't forget to compute P⁻¹
+</div>
+
+<div class="warn">
+<strong>Final reminder:</strong> Exam is 10:30 AM (not 10:00). 110 minutes. No calculator. Bring student ID.
+</div>
+
+<footer>MATH 3A Spring 2026 · Prof. Hezari · UCI &nbsp;|&nbsp; Study guide prepared June 7, 2026</footer>
+
+</body>
+</html>
